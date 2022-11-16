@@ -16,7 +16,7 @@ User.destroy_all
 puts "Database cleaned"
 
 puts "Populating user seeds"
-50.times do
+5.times do
   password = Faker::Internet.password
   User.create!(
   email: Faker::Internet.safe_email,
@@ -29,7 +29,7 @@ end
 
 puts "Populating artworks seeds"
 id_range = User.last.id - User.first.id
-10.times do |count|
+20.times do |count|
   Artwork.create!(
     artist_name: Faker::Artist.name.gsub("\u0000", ''),
     title: Faker::Game.title.gsub("\u0000", ''),

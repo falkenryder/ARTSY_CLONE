@@ -1,3 +1,23 @@
-<h1>Offers#index</h1>
-<p>Find me in app/views/offers/index.html.erb</p>
-<%= @offers %>
+<%= render "devise/shared/navbar" %>
+<h1>My Offers</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Artwork</th>
+      <th scope="col">Offer</th>
+      <th scope="col">Created on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each_with_index do |offer, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= link_to offer.artwork.title, offer.artwork, class: "site-link" %></td>
+      <td>$<%= offer.amount %></td>
+      <td><%= offer.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

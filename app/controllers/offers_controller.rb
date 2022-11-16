@@ -2,6 +2,7 @@ class OffersController < ApplicationController
   before_action :set_buyer
 
   def index
+    @offers = @buyer.offers
   end
 
   def show

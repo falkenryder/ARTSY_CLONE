@@ -4,7 +4,7 @@
     <div class="flex">
       <%= link_to "Log In", new_user_session_path, {class: 'btn btn-sm btn-outline-dark'} unless user_signed_in? %>
       <%= link_to "Sign up", new_user_registration_path, {class: 'btn btn-sm btn-dark'} unless user_signed_in? %>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
+      <%= button_to "Logout", destroy_user_session_path, {method: :delete, class: 'btn btn-sm btn-outline-dark'} if user_signed_in? %>
     </div>
   </div>
 </nav>

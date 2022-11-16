@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :artworks, only: %i[index show new create destroy]
+  resources :offers, only: %i[index show new create]
 end

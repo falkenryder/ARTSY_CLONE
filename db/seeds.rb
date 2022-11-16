@@ -20,8 +20,8 @@ puts "Populating user seeds"
   password = Faker::Internet.password
   User.create!(
   email: Faker::Internet.safe_email,
-  password: password,
-  password_confirmation: password,
+  password: "password",
+  password_confirmation: "password",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name
                   )

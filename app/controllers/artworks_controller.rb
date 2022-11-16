@@ -11,6 +11,5 @@ class ArtworksController < ApplicationController
   end
 
   def create
-
   end
 end

@@ -1,0 +1,12 @@
+.btn {
+  border-radius: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: inline-flex;
+  margin: 5px;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: rgb(36, 36, 252);
+  }
+}

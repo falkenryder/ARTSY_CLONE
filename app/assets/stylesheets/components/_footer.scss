@@ -1,0 +1,19 @@
+
+.footer{
+font-family: ll-unica77, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 16px;
+line-height: 26px;
+
+text-rendering: optimizelegibility;
+// box-sizing: inherit;
+padding-top: 40px;
+padding-bottom: 60px;
+display: grid;
+width: 100%;
+gap: 0px 200px;
+grid-template-columns: repeat(12, 1fr, 1fr);
+
+  li a{
+  color: black;
+  }
+}

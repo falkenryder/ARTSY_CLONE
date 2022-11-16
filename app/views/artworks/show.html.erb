@@ -9,3 +9,8 @@
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 </div>
+<% if user_signed_in? %>
+  <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %>
+<% else %>
+  <%= link_to "Make Offer", new_user_session_path %>
+<% end %>

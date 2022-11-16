@@ -1,2 +1,10 @@
-<h1>Artworks#new</h1>
-<p>Find me in app/views/artworks/new.html.erb</p>
+<h1>Create a new <strong>Artwork</strong>!</h1>
+<%= simple_form_for(@artwork) do |f| %>
+  <%= f.input :artist_name %>
+  <%= f.input :title %>
+  <%= f.input :theme %>
+  <%= f.input :year %>
+  <%= f.input :price %>
+  <%= f.input :details %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

@@ -2,7 +2,11 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @artworks = Artwork.all
+    if params[:user_id].present?
+      @artworks = Artwork.where(owner_id: params[:user_id])
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def show

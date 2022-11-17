@@ -9,7 +9,7 @@
 require 'faker'
 puts "Cleaning up database..."
 
-# Offer.destroy_all
+Offer.destroy_all
 Artwork.destroy_all
 User.destroy_all
 
@@ -24,7 +24,7 @@ puts "Populating user seeds"
   password_confirmation: "password",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name
-                  )
+  )
 end
 
 puts "Populating artworks seeds"
@@ -36,9 +36,47 @@ id_range = User.last.id - User.first.id
     theme: Faker::Game.genre.gsub("\u0000", ''),
     year: rand(1500..2022),
     price: rand(1..10000000),
-    details: Faker::String.random(length: 3..400).gsub("\u0000", ''),
+    details: Faker::Quote.famous_last_words,
     owner_id: User.first.id + rand(1..id_range)
   )
   end
 
+puts "Populating offers"
+id_range = User.last.id - User.first.id
+artwork_range = Artwork.last.id - Artwork.first.id
+3.times do |count|
+  artWorkID = Artwork.first.id + rand(1..artwork_range)
+  # if !Offer.where(buyer_id: artWorkID).exists?
+  Offer.create!(
+    amount: Artwork.find(artWorkID).price*0.9,
+    artwork_id: artWorkID,
+    buyer_id: User.first.id + rand(1..id_range))
+    # owner_id: User.find(RandomId)                )
+  end
+
 puts "Seeding completed"
+
+
+# create_table "offers", force: :cascade do |t|
+#   t.integer "amount"
+#   t.bigint "artwork_id"
+#   t.bigint "buyer_id"
+#   t.datetime "created_at", null: false
+#   t.datetime "updated_at", null: false
+#   t.index ["artwork_id"], name: "index_offers_on_artwork_id"
+#   t.index ["buyer_id"], name: "index_offers_on_buyer_id"
+# end
+
+# # 10.times do |count|
+# {
+# # create artworks
+# # @artwork = Artwork.new(xxxx)
+# # create user
+# # @user = User.new(xxx)
+# # create offers
+#   @offer = Offer.new(xxx)
+#   @offer.artwork = @artwork
+#   @offer.user = @user
+
+
+# }

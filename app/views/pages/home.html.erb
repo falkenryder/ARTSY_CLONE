@@ -1,14 +1,36 @@
 <%= render "devise/shared/navbar" %>
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h1>My Artworks</h1>
+
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h1><strong>Artsy</strong></h1>
+
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <h3>Latest Artworks:</h3>
 
 
+  <div class="row row-cols-auto g-6">
+    <% @artworks.first(3).each do |artwork|%>
+      <div><%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %></div>
+        <div class="col icard bcard" style="background-image: url('https://picsum.photos/300/400')">
+          <div class="h2-icard">
+            <h2 class="h2-icard"><%= artwork.title %></h2>
+          </div>
+            <p class="p-icard">Artist: <%= artwork.artist_name %> </p>
+            <p class="p-icard">  Price: $<%= artwork.price %></p>
+        </div>
+      <% end %>
 
+    <% end %>
 
+    </div>
+  </div>
+</div>
+</div>
 
-
-<%= link_to "Sell", user_artworks_path(current_user) if user_signed_in? %>
-
-<%= link_to "Buy", artworks_path %>
-
+<%= render "devise/shared/footer" %>

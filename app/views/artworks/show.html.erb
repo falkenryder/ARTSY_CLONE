@@ -7,22 +7,52 @@
       <span> <%= @artwork.title %></h2> </span>
     </div>
     <h1> <%= @artwork.artist_name %></h1><br>
-    <div id="price"> $10,000 </p>
+    <div>
+      <p>ScreeprScreenprint in colours on 425gm Saunders Waterford paper<br>
+        17 × 12 4/5 in | 43.2 × 32.5 cm<br>
+        Edition of 250 </p>
     </div>
-    <button class="btn">Make an Offer</button>
-  </div>
+    <div id="price"> $ <%= @artwork.price %></p></div>
+
+    <% if user_signed_in? %>
+      <button class="showbtn" style> <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %> </button>
+    <% else %>
+      <button class="showbtn"> <%= link_to "Make Offer", new_user_session_path %> </button>
+    <% end %>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Shipping and Taxes </button>
+        </h3>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body" style="color: rgb(112, 112, 112);">
+            Taxes may apply at checkout. Learn more <br>
+            Ships from Riehen, CH <br>
+            Shipping: Calculated in checkout <br>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Be covered by the Artsy Guarantee
+          </button>
+        </h3>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body" style="color: rgb(112, 112, 112);">
+            Secure Payment <br>
+            Money-Back Guarantee <br>
+            Authenticity Guarantee <br>
+        </div>
+      </div>
+    </div>
 </div>
 
-<div class="container delete">
+  </div>
+</div>
+<%= render "devise/shared/footer" %>
+<%# <div class="container delete">
   <%= link_to "Delete",
   artwork_path(@artwork),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
-</div>
-<% if user_signed_in? %>
-  <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %>
-<% else %>
-  <%= link_to "Make Offer", new_user_session_path %>
-<% end %>
-
-<%= render "devise/shared/footer" %>

@@ -1,38 +1,29 @@
 <%= render "devise/shared/navbar" %>
+<br>
 <div>
-<h1>Collect art and design online</h1>
+<h1><strong>Collect art and design online</strong></h1>
 </div>
+<br>
 
 <div class="container">
   <div class="row row-cols-auto g-6">
-    <div class="col icard bcard" style="background-image: url('https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')">
-      <div class="border">
-        <h2>Van Gogh</h2>
-      </div>
-    </div>
-
-    <div class="col icard bcard" style="background-image: url('https://news.artnet.com/app/news-upload/2021/02/Basquiat_Warrior-695x1024.jpg')">
-      <div class="border">
-        <h2>Basquiat</h2>
-      </div>
-    </div>
-    <div class="col icard bcard" style="background-image: url('https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg')">
-      <div class="border">
-        <h2>Artist</h2>
-      </div>
-    </div>
-
-    <% @artworks.each do |artwork|%>
-      <div class="col icard bcard" style="background-image: url('https://picsum.photos/300/400')">
-        <div class="border">
-          <h2><%= artwork.title %></h2>
-          <%= artwork.artist_name %>
-          <%= artwork.price %>
+    <% @artworks.last(6).each do |artwork|%>
+      <div><%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %></div>
+        <div class="col icard bcard" style="background-image: url('https://picsum.photos/300/400')">
+          <div class="h2-icard">
+            <h2 class="h2-icard"><%= artwork.title %></h2>
+          </div>
+            <p class="p-icard">Artist: <%= artwork.artist_name %> </p>
+            <p class="p-icard">  Price: $<%= artwork.price %></p>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
 
+    <% end %>
+
+
+
+      </div>
+  </div>
 </div>
 
 <%= render "devise/shared/footer" %>

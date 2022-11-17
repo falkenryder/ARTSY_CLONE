@@ -1,0 +1,82 @@
+<%# <div class="delete"> %>
+  <%# <%= link_to "Delete", %>
+  <%# artwork_path(@artwork), %>
+  <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%# %>
+<%# </div> %>
+<%# <% if user_signed_in? %>
+  <%# <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %>
+<%# <% else %>
+  <%# <%= link_to "Make Offer", new_user_session_path %>
+<%# <% end %>
+
+
+<%# <div class="container-1 card-product"> %>
+  <%# <img src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2F2mmtopy-L2jLMHIWVJbSmQ%2Fnormalized.jpg&width=2400&quality=80%E2%80%9D" alt=""> %>
+  <%# <div class="card-product-infos"> %>
+    <div>
+      <%# <span> <%= @artwork.title %></h2> </span>
+    </div>
+    <%# <h1> <%= @artwork.artist_name %></h1><br>
+    <%# <div id="price"> $10,000 </p> %>
+    </div>
+    <%# <button class="btn">Make an Offer</button> %>
+  </div>
+</div>
+
+
+
+
+.container-1 {
+  display: flex;
+}
+
+.card-product {
+  border-top: 0.5px solid lightgrey;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  padding: 15px;
+}
+.card-product-infos {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card-product img {
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}
+.card-product-infos span {
+  font-size: 26px;
+  margin: 0;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  font-family: ll-unica77, “Helvetica Neue”, Helvetica, Arial, sans-serif;
+}
+.card-product-infos h1 {
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: rgb(112, 112, 112);
+  font-family: ll-unica77, “Helvetica Neue”, Helvetica, Arial, sans-serif;
+  margin-bottom: 0;
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-end;
+}
+#price {
+margin-top: 20px;
+font-size: 26px;
+line-height: 32px;
+letter-spacing: -0.01em;
+color: rgb(0, 0, 0);
+font-family: ll-unica77, “Helvetica Neue”, Helvetica, Arial, sans-serif;
+}
+.card-product .card-product-infos {
+  padding: 16px;
+}

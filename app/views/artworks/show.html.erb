@@ -9,7 +9,11 @@
     <h1> <%= @artwork.artist_name %></h1><br>
     <div id="price"> $10,000 </p>
     </div>
-    <button class="btn">Make an Offer</button>
+    <% if user_signed_in? %>
+      <%= link_to "Make Offer", new_artwork_offer_path(@artwork), class: "btn" %>
+    <% else %>
+      <%= link_to "Make Offer", new_user_session_path, class: "btn" %>
+    <% end %>
   </div>
 </div>
 
@@ -19,10 +23,3 @@
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 </div>
-<% if user_signed_in? %>
-  <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %>
-<% else %>
-  <%= link_to "Make Offer", new_user_session_path %>
-<% end %>
-
-<%= render "devise/shared/footer" %>

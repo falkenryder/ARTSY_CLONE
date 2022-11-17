@@ -2,6 +2,8 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Artsy</a>
     <div class="flex">
+      <%= link_to "Sell", (user_artworks_path(current_user) if user_signed_in?), {class: 'btn btn-sm btn-outline-dark'}%> <br>
+      <%= link_to "Buy", artworks_path, {class: 'btn btn-sm btn-outline-dark'} %>
       <%= link_to "Log In", new_user_session_path, {class: 'btn btn-sm btn-outline-dark'} unless user_signed_in? %>
       <%= link_to "Sign up", new_user_registration_path, {class: 'btn btn-sm btn-dark'} unless user_signed_in? %>
       <%= button_to "Logout", destroy_user_session_path, {method: :delete, class: 'btn btn-sm btn-outline-dark'} if user_signed_in? %>

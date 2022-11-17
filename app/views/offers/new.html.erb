@@ -1,6 +1,8 @@
 <h1>Offers#new</h1>
 <p>Find me in app/views/offers/new.html.erb</p>
-<%= simple_form_for @offer, url: artwork_offers_path do |f| %>
-  <%= f.input :amount %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @offer, url: artwork_offers_path do |f| %>
+    <%= f.input :amount %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

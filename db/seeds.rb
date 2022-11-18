@@ -37,11 +37,11 @@ end
     new_artwork = Artwork.new(
         artist_name: Faker::Artist.name.gsub("\u0000", ''),
         title: Faker::Game.title.gsub("\u0000", ''),
-        theme: Faker::Game.genre.gsub("\u0000", ''),
+        theme: %w[Contemporary Street-Art Pop-Art Abstract-Expressionism Post-War Impressionism Old-Masters].sample,
         year: rand(1500..2022),
         price: rand(1..10000000),
         details: Faker::Quote.famous_last_words,
-        owner_id: User.first.id + rand(1..id_range)
+        owner_id: User.first.id + rand(0..id_range)
       )
       new_artwork.photo.attach(io: File.open(file.path), filename: "nes.png", content_type: "image/png")
       new_artwork.save!
@@ -58,7 +58,7 @@ artwork_range = Artwork.last.id - Artwork.first.id
   Offer.create!(
     amount: Artwork.find(artWorkID).price*0.9,
     artwork_id: artWorkID,
-    buyer_id: User.first.id + rand(1..id_range),
+    buyer_id: User.first.id + rand(0..id_range),
     status: "pending")
     # owner_id: User.find(RandomId)                )
   end

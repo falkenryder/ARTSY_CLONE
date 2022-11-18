@@ -33,13 +33,13 @@ id_range = User.last.id - User.first.id
   Artwork.create!(
     artist_name: Faker::Artist.name.gsub("\u0000", ''),
     title: Faker::Game.title.gsub("\u0000", ''),
-    theme: Faker::Game.genre.gsub("\u0000", ''),
+    theme: %w[Contemporary Street-Art Pop-Art Abstract-Expressionism Post-War Impressionism Old-Masters].sample,
     year: rand(1500..2022),
     price: rand(1..10000000),
     details: Faker::Quote.famous_last_words,
     owner_id: User.first.id + rand(1..id_range)
   )
-  end
+end
 
 puts "Populating offers"
 id_range = User.last.id - User.first.id

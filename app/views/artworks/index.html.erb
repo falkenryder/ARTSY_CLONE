@@ -6,6 +6,7 @@
 <br>
 
 <div class="container">
+  <h2><%= "My Artworks" if @artworks.all? { |artwork| artwork.owner_id == current_user.id } %></h2>
   <div class="row row-cols-auto g-6">
     <% @artworks.last(6).each do |artwork|%>
       <div><%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %></div>

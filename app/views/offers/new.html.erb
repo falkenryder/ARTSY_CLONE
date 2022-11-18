@@ -1,8 +1,15 @@
 <div class="container">
-
-  <h1>Make a new offer:</h1>
-  <%= simple_form_for @offer, url: artwork_offers_path do |f| %>
-    <%= f.input :amount %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="form-title"> Make a new offer </div>
+      <%= simple_form_for @offer, url: artwork_offers_path do |f| %>
+      <div class="form-inputs">
+        <%= f.input :amount, label: 'Bidding Price (USD)', placeholder: '10,000', error: 'Bidding Price is mandatory. Please specify one', input_html: { min: '0', step: 'any' } %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Submit", class: "d-inline btn btn-outline-dark" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

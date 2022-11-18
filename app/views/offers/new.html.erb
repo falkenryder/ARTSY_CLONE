@@ -1,0 +1,8 @@
+<div class="container">
+
+  <h1>Make a new offer:</h1>
+  <%= simple_form_for @offer, url: artwork_offers_path do |f| %>
+    <%= f.input :amount %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

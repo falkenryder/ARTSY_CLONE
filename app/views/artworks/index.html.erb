@@ -9,7 +9,7 @@
   <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
       <h2 class="d-inline">My Artworks</h2>
       <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
-      <% elsif user_signed_in? %>
+    <% elsif user_signed_in? %>
       <%= link_to "Offers I've made", offers_path, {class: 'btn btn-dark'} %>
   <% end %>
   <div class="row row-cols-auto g-6">

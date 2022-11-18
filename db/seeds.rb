@@ -29,6 +29,7 @@ puts "Populating user seeds"
   )
 end
 
+
   puts "Populating artworks seeds"
   id_range = User.last.id - User.first.id
   20.times do |count|
@@ -47,16 +48,18 @@ end
       puts "succesfully created new artwork #{new_artwork.id}"
     end
 
+
 puts "Populating offers"
 id_range = User.last.id - User.first.id
 artwork_range = Artwork.last.id - Artwork.first.id
-3.times do |count|
+50.times do |count|
   artWorkID = Artwork.first.id + rand(1..artwork_range)
   # if !Offer.where(buyer_id: artWorkID).exists?
   Offer.create!(
     amount: Artwork.find(artWorkID).price*0.9,
     artwork_id: artWorkID,
-    buyer_id: User.first.id + rand(1..id_range))
+    buyer_id: User.first.id + rand(1..id_range),
+    status: "pending")
     # owner_id: User.find(RandomId)                )
   end
 

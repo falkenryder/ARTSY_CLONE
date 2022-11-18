@@ -1,3 +1,41 @@
+.container-index-art {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+  }
+
+.card-body-index {
+  color: black;
+  font-size: 16px;
+  line-height: 10px;
+  font-family: ll-unica77, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  text-rendering: optimizelegibility;
+  text-align: left;
+  padding: 10px;
+  // box-shadow: 10px 10px 5px lightgray;
+}
+
+.p-index {
+  font-size: 24px;
+}
+
+.title-index-card{
+  color:rgb(158, 158, 158);
+  font-style: italic;
+}
+
+.price-index-card{
+  font-size: 13px;
+}
+
+.title {
+  justify-content: space-between;
+  display: flex;
+}
+
 .card-product {
   overflow: hidden;
   height: 600px;

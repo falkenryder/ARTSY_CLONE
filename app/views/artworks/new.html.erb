@@ -1,10 +1,21 @@
-<h1>Create a new <strong>Artwork</strong>!</h1>
-<%= simple_form_for(@artwork) do |f| %>
-  <%= f.input :artist_name %>
-  <%= f.input :title %>
-  <%= f.input :theme %>
-  <%= f.input :year %>
-  <%= f.input :price %>
-  <%= f.input :details %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-12 col-lg-6">
+        <div class="form-title"> List your artwork to sell </div>
+        <%= simple_form_for(@artwork) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :artist_name, label: 'Artist', placeholder: 'Everett Shinn', error: 'Username is mandatory, please specify one' %>
+          <%= f.input :title, label: 'Title', placeholder: 'Julia Marlowe as Barbara Frietchie in the Play', error: 'Title is mandatory, please specify one'%>
+          <%= f.input :theme, label: 'Theme', placeholder: 'Pre 20th century', error: 'Theme is mandatory, please specify one', :collection => ['Contemporary', 'Street-Art', 'Pop-Art', 'Abstract-Expressionism', 'Post-War', 'Impressionism', 'Old-Masters'] %>
+          <%= f.input :year, label: 'Year', placeholder: '1899', error: 'Year is mandatory, please specify one'%>
+          <%= f.input :price, label: 'Price (USD)', placeholder: '550,000', error: 'Year is mandatory, please specify one', input_html: { min: '0', step: 'any' } %>
+          <%= f.input :photo, label: 'Photo', as: :file, error: 'Photo is mandatory, please upload one'%>
+          <%= f.input :details, labe: 'Additional Details', placeholder: 'There is a story behind Everett Shinn’s portrait of Julia Marlowe' %>
+        </div>
+        <div class="form-actions">
+          <%= f.submit "Submit", class: "d-inline btn btn-outline-dark" %>
+        </div>
+        <% end %>
+     </div>
+   </div>
+</div>

@@ -1,7 +1,7 @@
 <%= render "devise/shared/navbar" %>
 
 <div class="container card-product">
-  <img src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2F2mmtopy-L2jLMHIWVJbSmQ%2Fnormalized.jpg&width=2400&quality=80%E2%80%9D" alt="">
+  <%= cl_image_tag @artwork.photo.key  %>
   <div class="card-product-infos">
     <div>
       <span> <%= @artwork.title %></h2> </span>
@@ -14,13 +14,15 @@
     </div>
     <div id="price"> $ <%= @artwork.price %></p></div>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @artwork.owner_id == current_user.id %>
+      <%= link_to "Offers", artwork_offers_path(@artwork), {class: 'd-inline btn btn-outline-dark'} %>
+    <% elsif user_signed_in? %>
       <%= link_to "Make Offer", new_artwork_offer_path(@artwork), {class: 'd-inline btn btn-outline-dark'} %>
     <% else %>
       <%= link_to "Make Offer", new_user_session_path, {class: 'd-inline btn btn-outline-dark'} %>
     <% end %>
 
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionExample" style="margin-top: 20px;">
       <div class="accordion-item">
         <h3 class="accordion-header" id="headingOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Shipping and Taxes </button>

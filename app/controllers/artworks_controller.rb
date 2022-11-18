@@ -24,7 +24,7 @@ class ArtworksController < ApplicationController
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -41,6 +41,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:artist_name, :title, :theme, :year, :price, :details)
+    params.require(:artwork).permit(:artist_name, :title, :theme, :year, :price, :details, :photo)
   end
 end

@@ -1,7 +1,7 @@
 <%= render "devise/shared/navbar" %>
 
 <div class="container card-product">
-  <img src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2F2mmtopy-L2jLMHIWVJbSmQ%2Fnormalized.jpg&width=2400&quality=80%E2%80%9D" alt="">
+  <%= cl_image_tag @artwork.photo.key  %>
   <div class="card-product-infos">
     <div>
       <span> <%= @artwork.title %></h2> </span>

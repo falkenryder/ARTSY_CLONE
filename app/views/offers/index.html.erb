@@ -16,6 +16,7 @@
       <th scope="row"><%= index + 1 %></th>
       <td><%= link_to offer.artwork.title, offer.artwork, class: "site-link" %></td>
       <td>$<%= offer.amount %></td>
+      <td><%= link_to "See more", offer_path(offer)%></td>
       <td><%= offer.created_at %></td>
     </tr>
     <% end %>

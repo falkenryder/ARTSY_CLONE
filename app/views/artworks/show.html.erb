@@ -15,9 +15,9 @@
     <div id="price"> $ <%= @artwork.price %></p></div>
 
     <% if user_signed_in? %>
-      <button class="showbtn" style> <%= link_to "Make Offer", new_artwork_offer_path(@artwork) %> </button>
+      <%= link_to "Make Offer", (new_artwork_offer_path(@artwork) if user_signed_in?), {class: 'btn btn-sm btn-outline-dark'}%>
     <% else %>
-      <button class="showbtn"> <%= link_to "Make Offer", new_user_session_path %> </button>
+      <%= link_to "Make Offer", new_user_session_path, {class: 'btn btn-sm btn-outline-dark'} %>
     <% end %>
 
     <div class="accordion" id="accordionExample">
@@ -52,4 +52,3 @@
   </div>
 </div>
 <%= render "devise/shared/footer" %>
-

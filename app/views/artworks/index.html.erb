@@ -1,11 +1,15 @@
 <%= render "devise/shared/navbar" %>
 <br>
 <div>
-<h1><strong>Collect art and design online</strong></h1>
+  <h1><strong>Collect art and design online</strong></h1>
 </div>
 <br>
 
 <div class="container">
+  <% if @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
+      <h2 class="d-inline">My Artworks</h2>
+      <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
+  <% end %>
   <div class="row row-cols-auto g-6">
     <% @artworks.last(6).each do |artwork|%>
       <div><%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %></div>

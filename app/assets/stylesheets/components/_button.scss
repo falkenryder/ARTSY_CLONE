@@ -10,22 +10,3 @@
     background-color: rgb(36, 36, 252);
   }
 }
-
-.showbtn {
-  border-radius: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
-  display: inline-flex;
-  margin: 5px;
-  border: none;
-  color: white;
-  width: 100%;
-  height: 40px;
-
-  &:hover {
-    text-decoration: none;
-    background-color: rgb(36, 36, 252);
-    text-align: center;
-    color:white;
-  }
-}

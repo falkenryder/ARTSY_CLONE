@@ -1,4 +1,71 @@
 <%= render "devise/shared/navbar" %>
+<% if @artwork %>
+<h1>Offers for <%= @artwork.title %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Offer</th>
+      <th scope="col">Created on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each_with_index do |offer, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td>$<%= offer.amount %></td>
+      <td><%= link_to "See more", offer_path(offer)%></td>
+      <td><%= offer.created_at %></td>
+      <td><%= offer.status %></td>
+      <% if offer.status == "pending" %>
+      <td>
+          <%= simple_form_for offer, url: artwork_offer_path(@artwork, offer) do |f| %>
+            <%= f.hidden_field :status, :value => "accepted" %>
+            <%= f.submit "Accept", class: "btn btn-primary" %>
+          <% end %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% elsif @seller %>
+<h1> Offers for my artworks</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Artwork</th>
+      <th scope="col">Offer</th>
+      <th scope="col">Created on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each_with_index do |offer, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= link_to offer.artwork.title, offer.artwork, class: "site-link" %></td>
+      <td>$<%= offer.amount %></td>
+      <td><%= link_to "See more", offer_path(offer)%></td>
+      <td><%= offer.created_at %></td>
+      <td><%= offer.status %></td>
+            <% if offer.status == "pending" %>
+      <td>
+          <%= simple_form_for offer, url: artwork_offer_path(offer.artwork, offer) do |f| %>
+            <%= f.hidden_field :status, :value => "accepted" %>
+            <%= f.submit "Accept", class: "btn btn-primary" %>
+          <% end %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% elsif @offers.all? {|offer| offer.buyer_id == current_user.id } %>
 <h1>My Offers</h1>
 
 <table class="table table-hover">
@@ -18,7 +85,10 @@
       <td>$<%= offer.amount %></td>
       <td><%= link_to "See more", offer_path(offer)%></td>
       <td><%= offer.created_at %></td>
+      <td><%= offer.status %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<% end %>

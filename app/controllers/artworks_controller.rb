@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_owner
 
   def index
     if params[:user_id].present?
@@ -19,6 +20,7 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(artwork_params)
+    @artwork.owner_id = @owner.id
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
@@ -33,6 +35,10 @@ class ArtworksController < ApplicationController
   end
 
   private
+
+  def set_owner
+    @owner = current_user
+  end
 
   def artwork_params
     params.require(:artwork).permit(:artist_name, :title, :theme, :year, :price, :details)

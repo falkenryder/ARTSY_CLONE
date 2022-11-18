@@ -6,7 +6,7 @@
         <div class="form-inputs">
           <%= f.input :artist_name, label: 'Artist', placeholder: 'Everett Shinn', error: 'Username is mandatory, please specify one' %>
           <%= f.input :title, label: 'Title', placeholder: 'Julia Marlowe as Barbara Frietchie in the Play', error: 'Title is mandatory, please specify one'%>
-          <%= f.input :theme, label: 'Theme', placeholder: 'Pre 20th century', error: 'Theme is mandatory, please specify one'%>
+          <%= f.input :theme, label: 'Theme', placeholder: 'Pre 20th century', error: 'Theme is mandatory, please specify one', :collection => ['Contemporary', 'Street-Art', 'Pop-Art', 'Abstract-Expressionism', 'Post-War', 'Impressionism', 'Old-Masters'] %>
           <%= f.input :year, label: 'Year', placeholder: '1899', error: 'Year is mandatory, please specify one'%>
           <%= f.input :price, label: 'Price (USD)', placeholder: '550,000', error: 'Year is mandatory, please specify one', input_html: { min: '0', step: 'any' } %>
           <%= f.input :photo, label: 'Photo', as: :file, error: 'Photo is mandatory, please upload one'%>

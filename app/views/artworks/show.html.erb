@@ -14,7 +14,9 @@
     </div>
     <div id="price"> $ <%= @artwork.price %></p></div>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @artwork.owner_id == current_user.id %>
+      <%= link_to "Offers", artwork_offers_path(@artwork), {class: 'd-inline btn btn-outline-dark'} %>
+    <% elsif user_signed_in? %>
       <%= link_to "Make Offer", new_artwork_offer_path(@artwork), {class: 'd-inline btn btn-outline-dark'} %>
     <% else %>
       <%= link_to "Make Offer", new_user_session_path, {class: 'd-inline btn btn-outline-dark'} %>

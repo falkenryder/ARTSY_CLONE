@@ -1,11 +1,11 @@
 <%= render "devise/shared/navbar" %>
-<%= render "devise/shared/carousel" %>
+<%= render "devise/shared/carousel2" %>
 
 
 <div class="container">
-  <h3 style="font-family: font-family: ll-unica77, 'Helvetica Neue', Helvetica, Arial, sans-serif;">Featured Artworks:</h3>
+  <h3 style="font-family: font-family: ll-unica77, 'Helvetica Neue', Helvetica, Arial, sans-serif;">Latest Artworks</h3>
   <div class="container-index-art">
-    <% @artworks.last(4).each do |artwork|%>
+    <% @artworks.last(3).each do |artwork|%>
     <div class="card-index" style="margin: 30px">
      <%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %>
      <%= cl_image_tag artwork.photo.key, height: 200, width: 200, crop: :fill, class: "card-img-top" %>

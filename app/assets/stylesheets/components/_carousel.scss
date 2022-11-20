@@ -7,7 +7,7 @@
   background-size: cover;
 }
 
-.carousel-text {
+.carousel-text h1 {
   align-items: center;
   width: 60%;
   font-family: ll-unica77, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -20,4 +20,39 @@
   align-items: center;
   flex-direction: column;
   width: 200px;
+}
+
+.carousel-control-prev-icon {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+}
+
+.carousel-control-next-icon {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+}
+
+.carousel-indicators {
+  bottom: -20px;
+
+  .indicator {
+    opacity: 0.3;
+    height: 1px;
+    width: 100px;
+  }
+
+  .indicator.active {
+    opacity: 1.0;
+    width: 100px;
+  }
+}
+.carousel.carousel-dark.slide .carousel-control-prev {
+
+  width: 5%;
+}
+.carousel.carousel-dark.slide .carousel-control-next {
+
+  width: 5%;
 }

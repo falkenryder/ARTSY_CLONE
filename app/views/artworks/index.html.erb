@@ -16,7 +16,7 @@
     <% @artworks.last(6).each do |artwork|%>
     <div class="card-index" style="margin: 10px">
      <%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %>
-        <img class="card-img-top" src="https://source.unsplash.com/random/200x200" alt="Card image cap">
+      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill  %>
         <div class="card-body-index">
           <div class="title">
             <p class="p-index">Artist: <%= artwork.artist_name %></p>

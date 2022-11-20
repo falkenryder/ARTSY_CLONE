@@ -1,0 +1,23 @@
+.row.align-items-center{
+  background-color: rgb(247, 247, 247);
+}
+
+.carousel-item {
+  height: 32rem;
+  background-size: cover;
+}
+
+.carousel-text {
+  align-items: center;
+  width: 60%;
+  font-family: ll-unica77, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+}
+
+.col-md.py-2.first{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+}

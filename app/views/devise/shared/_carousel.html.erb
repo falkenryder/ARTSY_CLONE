@@ -1,13 +1,12 @@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"  aria-label="Slide 2"></button>
+    <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"  aria-label="Slide 3"></button> %>
+  </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="overlay-image">
+    <div class="carousel-item active overlay-image">
         <div class="row align-items-center">
             <div class="col-md py-2 first">
               <div class="carousel-text">
@@ -16,29 +15,26 @@
               </div>
             </div>
             <div class="col-md py-2">
-              <img class="d-block w-100" src="https://images.unsplash.com/photo-1668613964763-90d0bd6559f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="First slide">
+              <img class="carousel__img" src="https://images.unsplash.com/photo-1668613964763-90d0bd6559f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="First slide">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item overlay-image">
+      <div class="row align-items-center">
+          <div class="col-md py-2">
+            <img class="carousel__img" src="https://images.unsplash.com/photo-1668613964763-90d0bd6559f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Second slide">
+          </div>
+          <div class="col-md py-2 first">
+            <div class="carousel-text">
+              <p> Collect art by the world's leading artists </p>
+              <button class="btn btn-primary"><%= link_to "View More", artworks_path, :style=>'color: white'%></button>
             </div>
           </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="overlay-image">
-        <div class="row align-items-center">
-            <div class="col-md py-2">
-              <img class="d-block w-100" src="https://images.unsplash.com/photo-1668613964763-90d0bd6559f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Second slide">
-            </div>
-            <div class="col-md py-2 first">
-              <div class="carousel-text">
-                <p> Collect art by the world's leading artists </p>
-                <button class="btn btn-primary"><%= link_to "View More", artworks_path, :style=>'color: white'%></button>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://images.unsplash.com/photo-1668689541213-fe0d30af7af6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Third slide">
-    </div>
+    <%# <div class="carousel-item"> %>
+      <%# <img class="carousel__img" src="https://images.unsplash.com/photo-1668689541213-fe0d30af7af6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="Third slide"> %>
+    <%# </div> %>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

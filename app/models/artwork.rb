@@ -1,4 +1,9 @@
 class Artwork < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by,
+                  against: %i[artist_name title year theme],
+                  using: { trigram: { threshold: 0.1 } }
+
   include ActionView::Helpers::NumberHelper
 
   validates :artist_name, :title, :theme, :year, :price, :details, presence: true

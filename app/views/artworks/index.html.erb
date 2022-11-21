@@ -3,13 +3,15 @@
 <div class="container">
   <h1><strong>Collect art and design online</strong></h1>
 
-  <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
-    <h2 class="d-inline">My Artworks</h2>
-      <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
-      <%= link_to "Offers I've received", user_offers_path(current_user), {class: 'd-inline btn btn-outline-dark'} %>
-    <% elsif user_signed_in? %>
-      <%= link_to "Offers I've made", offers_path, {class: 'btn btn-outline-dark'} %>
-  <% end %>
+  <div class="offers">
+    <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
+      <h2 class="d-inline">My Artworks</h2>
+        <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
+        <%= link_to "Offers I've received", user_offers_path(current_user), {class: 'd-inline btn btn-outline-dark'} %>
+      <% elsif user_signed_in? %>
+        <%= link_to "Offers I've made", offers_path, {class: 'btn btn-outline-dark'} %>
+    <% end %>
+  </div>
   <br><br>
 
   <div class="container-index-art">

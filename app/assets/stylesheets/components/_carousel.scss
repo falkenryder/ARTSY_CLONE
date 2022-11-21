@@ -4,7 +4,8 @@
 
 .carousel-item {
   height: 32rem;
-  background-size: cover;
+  // background-size: cover;
+  object-fit: cover;
 }
 
 .carousel-text {
@@ -20,4 +21,17 @@
   align-items: center;
   flex-direction: column;
   width: 200px;
+}
+
+.carousel__img {
+  // object-fit: contain;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  // background-color: #999;
+  // background-color: rgba(70, 70, 70, 0.25);
+  margin-top: 220px;
+  transform: translate(0, -10px);
 }

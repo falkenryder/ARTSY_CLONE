@@ -15,3 +15,40 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.left-box {
+  width: 50%;
+
+  .d-flex {
+    width: 100%;
+  }
+}
+
+#query {
+  background-color: white;
+  border: none;
+  border-bottom: 1px lightgrey solid;
+}
+  /* Step 1: Common Properties
+  These styles are required to make icons render reliably */
+  .icon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+#button-addon2 {
+  background-color: white;
+    border: none;
+    color: grey;
+    border-bottom: 1px lightgrey solid;
+}
+
+.form-control:focus {
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  opacity: 1.0;
+}

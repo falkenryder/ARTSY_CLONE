@@ -1,4 +1,10 @@
 class Artwork < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by,
+                  against: %i[artist_name title year theme],
+                  using: { trigram: { threshold: 0.1 } }
+
+
   validates :artist_name, :title, :theme, :year, :price, :details, presence: true
   validates :theme, inclusion: { in: %w[Contemporary Street-Art Pop-Art Abstract-Expressionism Post-War Impressionism Old-Masters] }
 

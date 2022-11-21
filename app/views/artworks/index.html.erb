@@ -2,7 +2,6 @@
 
 <div class="container">
 
-
   <div class="row header p-4 mb-3">
     <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
       <div class="col-auto me-auto">
@@ -38,14 +37,14 @@
             <i class="fa-regular fa-heart"></i>
           </div>
           <p class="title-index-card"><%= artwork.title %></p>
-          <p class="price-index-card"><strong>$<%= artwork.price %></strong></p>
+          <p class="price-index-card"><strong>$<%= artwork.price_delimit %></strong></p>
         </div>
         <% end %>
       </div>
     <% end %>
   </div>
 
-  <div class="row p-4">
+  <div class="row p-4 border-top">
     <%= render "devise/shared/footer" %>
   </div>
 

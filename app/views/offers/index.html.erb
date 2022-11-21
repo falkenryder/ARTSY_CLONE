@@ -15,7 +15,6 @@
     <tr>
       <th scope="row"><%= index + 1 %></th>
       <td>$<%= offer.amount %></td>
-      <td><%= link_to "See more", offer_path(offer)%></td>
       <td><%= offer.created_at %></td>
       <td><%= offer.status %></td>
       <% if offer.status == "pending" %>

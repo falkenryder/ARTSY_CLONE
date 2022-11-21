@@ -1,22 +1,48 @@
 <%= render "devise/shared/navbar" %>
 
 <div class="container">
-  <h1><strong>Collect art and design online</strong></h1>
 
-  <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
-    <h2 class="d-inline">My Artworks</h2>
-      <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
-      <%= link_to "Offers I've received", user_offers_path(current_user), {class: 'd-inline btn btn-outline-dark'} %>
-    <% elsif user_signed_in? %>
-      <%= link_to "Offers I've made", offers_path, {class: 'btn btn-outline-dark'} %>
-  <% end %>
+
+  <div class="offers">
+    <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
+      <h2 class="d-inline">My Artworks</h2>
+        <%= link_to "Submit a new artwork", new_artwork_path, {class: 'd-inline btn btn-outline-dark'} %>
+        <%= link_to "Offers I've received", user_offers_path(current_user), {class: 'd-inline btn btn-outline-dark'} %>
+      <% elsif user_signed_in? %>
+        <%= link_to "Offers I've made", offers_path, {class: 'btn btn-outline-dark'} %>
+    <% end %>
+  </div>
   <br><br>
 
+  <div class="row header p-4 mb-3">
+    <% if user_signed_in? && @artworks.all? { |artwork| artwork.owner_id == current_user.id } %>
+      <div class="col-auto me-auto">
+        <h1>My Artworks</h1>
+      </div>
+      <div class="col-auto">
+          <%= link_to "Submit a new artwork", new_artwork_path, {class: 'btn btn-outline-dark'} %>
+          <%= link_to "Offers I've received", user_offers_path(current_user), {class: 'btn btn-outline-dark'} %>
+      </div>
+      <% elsif user_signed_in? %>
+        <div class= "col-auto me-auto">
+          <h1>Collect art and design online</h1>
+        </div>
+        <div class="col-auto">
+          <%= link_to "Offers I've made", offers_path, {class: 'btn btn-outline-dark'} %>
+        </div>
+      <% else %>
+        <div class= "col-auto me-auto">
+          <h1>Collect art and design online</h1>
+        </div>
+    <% end %>
+  </div>
+
+
   <div class="container-index-art">
-    <% @artworks.last(6).each do |artwork|%>
-    <div class="card-index" style="margin: 10px">
-     <%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %>
-      <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill  %>
+    <% @artworks.each do |artwork|%>
+      <div class="col card-index" style="margin: 10px">
+      <%= link_to artwork_path(artwork), :style=>'text-decoration: none;' do %>
+        <%= cl_image_tag artwork.photo.key, height: 300, width: 400, crop: :fill  %>
         <div class="card-body-index">
           <div class="title">
             <p class="p-index">Artist: <%= artwork.artist_name %></p>
@@ -25,10 +51,13 @@
           <p class="title-index-card"><%= artwork.title %></p>
           <p class="price-index-card"><strong>$<%= artwork.price %></strong></p>
         </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
+  <div class="row p-4">
+    <%= render "devise/shared/footer" %>
+  </div>
+
 </div>
-<%= render "devise/shared/footer" %>

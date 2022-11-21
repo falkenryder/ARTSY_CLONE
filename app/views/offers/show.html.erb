@@ -1,7 +1,22 @@
-<h1>Offers#show</h1>
+<%= render "devise/shared/navbar" %>
 
-<p>Offer ID: 00<%= @offer.id%></p>
-<p>Price: $<%= @offer.amount%></p>
-<p>Arwork Piece: 0<%= @offer.artwork_id%></p>
-<p>Buyer ID: 00<%= @offer.buyer_id%></p>
-<p>..show the artwork image..</p>
+<div class="container card-product">
+  <%= cl_image_tag @offer.artwork.photo.key  %>
+  <div class="card-product-infos">
+    <div>
+      <span> <%= @offer.artwork.title %></h2> </span>
+    </div>
+    <h1> <%= @offer.artwork.artist_name %>, <%= @offer.artwork.year %></h1><br>
+    <div>
+      <p><strong><%= @offer.artwork.theme %></strong></p>
+      <p style="font-size: 16px;"><%= @offer.artwork.details %></p>
+    </div>
+    <div id="price"> $ <%= @offer.artwork.price_delimit %></p></div>
+    <div id="price"> Offer Price : $ <%= @offer.price_delimit %></p></div>
+
+  </div>
+</div>
+
+<div class="border-top">
+  <%= render "devise/shared/footer" %>
+</div>

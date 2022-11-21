@@ -17,17 +17,23 @@
 
 
 .form-inputs{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: rgb(222, 223, 229);
-    font-family: Helvetica, Arial, sans-serif;
-    max-width: 600px;
-    padding: 25px;
-    border-radius: 5px;
-    justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(222, 223, 229);
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 600px;
+  padding: 25px;
+  border-radius: 5px;
+  justify-content: center;
 }
 
 .form_actions {
-    margin-top: 40px;
+  margin-top: 40px;
 
+}
+
+.form-bottom {
+  margin: 4px;
+  color: grey;
+  text-decoration: none;
 }

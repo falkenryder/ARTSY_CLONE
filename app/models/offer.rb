@@ -4,4 +4,12 @@ class Offer < ApplicationRecord
 
   belongs_to :artwork
   belongs_to :buyer, class_name: "User"
+
+  include ActionView::Helpers::NumberHelper
+
+  def price_delimit
+    return "#{number_with_delimiter(self.amount)}"
+
+  end
+
 end

@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 gem "cloudinary"
-gem "dotenv-rails", groups: [:development, :test]
 
 ruby "3.1.2"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
@@ -81,3 +80,4 @@ group :test do
 end
 
 gem 'devise'
+gem "pg_search"

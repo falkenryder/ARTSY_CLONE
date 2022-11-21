@@ -2,6 +2,8 @@
   justify-content: space-between;
   background: white;
   border: 1px rgb(231, 231, 231) solid;
+  padding-left: 30px;
+  padding-right: 30px;
 
   .flex {
     display: inline-flex;
@@ -14,4 +16,35 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.container-nav2{
+  display: flex;
+  text-decoration: none;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+// css for dropdown btn in nav bar
+
+.btn-drop {
+  display: flex;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 10px;
+  transform: translate(0, 70%);
+  // transform: translate(5%,20%);
+
+}
+
+.dropdown-menu {
+  transform: translate(-40%,10%);
+  color: black;
+}
+
+.signup {
+  background-color: black;
+  color: white;
 }

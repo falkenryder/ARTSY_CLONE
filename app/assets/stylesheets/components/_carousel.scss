@@ -8,6 +8,12 @@
   object-fit: cover;
 }
 
+.carousel-text {
+  margin-left: 60px;
+  align-items: center;
+  width: 80%;
+}
+
 .carousel-text h1 {
   align-items: center;
   width: 60%;
@@ -35,21 +41,22 @@
   // background-color: rgba(70, 70, 70, 0.25);
   margin-top: 220px;
   transform: translate(0, -10px);
+}
 
 .carousel-control-prev-icon {
   position: absolute;
-  bottom: -20px;
+  bottom: -25px;
   left: 20px;
 }
 
 .carousel-control-next-icon {
   position: absolute;
-  bottom: -20px;
+  bottom: -25px;
   right: 20px;
 }
 
 .carousel-indicators {
-  bottom: -20px;
+  bottom: -40px;
 
   .indicator {
     opacity: 0.3;

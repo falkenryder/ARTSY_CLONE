@@ -6,13 +6,13 @@
     <div>
       <span> <%= @artwork.title %></h2> </span>
     </div>
-    <h1> <%= @artwork.artist_name %></h1><br>
+    <h1> <%= @artwork.artist_name %>, <%= @artwork.year %></h1><br>
     <div>
-      <p>ScreeprScreenprint in colours on 425gm Saunders Waterford paper<br>
-        17 × 12 4/5 in | 43.2 × 32.5 cm<br>
-        Edition of 250 </p>
+      <p><strong><%= @artwork.theme %></strong></p>
+      <p style="font-size: 16px;"><%= @artwork.details %></p>
+
     </div>
-    <div id="price"> $ <%= @artwork.price %></p></div>
+    <div id="price"> $ <%= @artwork.price_delimit %></p></div>
 
     <% if user_signed_in? && @artwork.owner_id == current_user.id %>
       <%= link_to "Offers", artwork_offers_path(@artwork), {class: 'd-inline btn btn-outline-dark'} %>
@@ -25,10 +25,10 @@
     <div class="accordion" id="accordionExample" style="margin-top: 20px;">
       <div class="accordion-item">
         <h3 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Shipping and Taxes </button>
+          <button class="accordion-button" id="btn-accordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Shipping and Taxes </button>
         </h3>
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class="accordion-body" style="color: rgb(112, 112, 112);">
+          <div class="accordion-body" id="body-accordion">
             Taxes may apply at checkout. Learn more <br>
             Ships from Riehen, CH <br>
             Shipping: Calculated in checkout <br>
@@ -37,11 +37,11 @@
       </div>
       <div class="accordion-item">
         <h3 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Be covered by the Artsy Guarantee
+          <button class="accordion-button collapsed" id="btn-accordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Be covered by the Artsy Guarantee
           </button>
         </h3>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-          <div class="accordion-body" style="color: rgb(112, 112, 112);">
+          <div class="accordion-body" id="body-accordion">
             Secure Payment <br>
             Money-Back Guarantee <br>
             Authenticity Guarantee <br>
@@ -51,6 +51,9 @@
 
 </div>
 
-  </div>
 </div>
-<%= render "devise/shared/footer" %>
+</div>
+
+<div class="border-top">
+  <%= render "devise/shared/footer" %>
+</div>

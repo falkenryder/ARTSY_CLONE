@@ -2,21 +2,22 @@
   color: #2e2e2e;
   padding-bottom: 40px;
   margin-bottom: 0;
-  margin-top: 50px;
+  margin-top: 30px;
   align-items: center;
   height: auto;
   font-family: ll-unica77, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // display: flex;
+  // justify-content: space-between;
 
   .row:first-child {
     padding-top: 50px;
     padding-bottom: 50px;
-    border-top: 1px #e7e7e7 solid
+    // border-top: 1px #e7e7e7 solid
   }
 
   .row:last-child {
     padding-top: 50px;
     padding-bottom: 0px;
-    border-top: 1px #e7e7e7 solid
+    // border-top: 1px #e7e7e7 solid
   }
-
 }

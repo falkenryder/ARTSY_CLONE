@@ -28,6 +28,7 @@ class OffersController < ApplicationController
     @artwork = Artwork.find(params[:artwork_id])
     @offer.artwork = @artwork
     @offer.buyer = @buyer
+    @offer.status = "pending"
     if @offer.save
       redirect_to @artwork
     else

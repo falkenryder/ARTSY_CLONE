@@ -30,7 +30,7 @@ class OffersController < ApplicationController
     @offer.buyer = @buyer
     @offer.status = "pending"
     if @offer.save
-      redirect_to @artwork
+      redirect_to offers_path
     else
       render :new, status: :unprocessable_entity
     end

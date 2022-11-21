@@ -6,7 +6,8 @@ class ArtworksController < ApplicationController
     if params[:user_id].present?
       @artworks = Artwork.where(owner_id: params[:user_id])
     elsif params[:query].present?
-      @artworks = Artwork.search_by(params[:query])
+      @query = params[:query]
+      @artworks = Artwork.search_by(@query)
     else
       @artworks = Artwork.all
     end

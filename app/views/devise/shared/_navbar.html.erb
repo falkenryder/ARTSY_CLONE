@@ -1,7 +1,10 @@
 <nav class="navbar navbar-lewagon sticky-top">
   <div class="container-fluid">
+
     <div class="flex left-box">
-      <a class="navbar-brand" href="/">Artsy</a>
+      <a class="navbar-brand" href="/">Artsy
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Artsy_logo.svg" width="30px" height="40px">
+      </a>
       <%= form_with url: artworks_path, method: :get, class: "input-group mb-3" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -13,6 +16,7 @@
         <% end %>
       <% end %>
     </div>
+
     <div class="flex">
       <%= link_to "Buy", artworks_path, {class: 'btn btn-sm btn-outline-dark'} %>
       <% if user_signed_in? %>
@@ -21,8 +25,32 @@
         <%= link_to "Sell", new_user_session_path, {class: 'btn btn-sm btn-outline-dark'}%>
       <% end %>
       <%= link_to "Log In", new_user_session_path, {class: 'btn btn-sm btn-outline-dark'} unless user_signed_in? %>
-      <%= link_to "Sign up", new_user_registration_path, {class: 'btn btn-sm btn-outline-dark'} unless user_signed_in? %>
+      <%= link_to "Sign up", new_user_registration_path, {class: 'btn btn-sm btn-outline-dark signup'} unless user_signed_in? %>
       <%= button_to "Logout", destroy_user_session_path, {method: :delete, class: 'btn btn-sm btn-outline-dark'} if user_signed_in? %>
+
+      <% if user_signed_in? %>
+      <div class="btn-group-drop">
+        <i class="btn-drop fa-solid fa-bars fa-1.5x" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button"><%= link_to "Offers", user_offers_path(current_user), :style=>'text-decoration: none; color: black' %> </button>
+          <button class="dropdown-item" type="button"><%= link_to "My Art", user_artworks_path(current_user), :style=>'text-decoration: none; color: black' %></button>
+          <button class="dropdown-item" type="button"><%= link_to "Submit Art", new_artwork_path, :style=>'text-decoration: none; color: black' %></button>
+          <%# <button class="dropdown-item" type="button" style="text-decoration: none; color: rgb(12,110,253)"> Settings</button> %>
+          <%# <button class="dropdown-item logout" type="button"><%= button_to "Logout", destroy_user_session_path, {method: :delete, class: 'btn'} </button>%>
+        </div>
+      </div>
+      <% end %>
     </div>
+  </div>
+  <div class="container-nav2">
+    Artists &nbsp
+    <%= link_to 'Artwork', artworks_path, :style=>'text-decoration: none; color: black'%> &nbsp
+    Auctions &nbsp
+    Viewing Rooms &nbsp
+    Galleries &nbsp
+    Fairs &nbsp
+    Shows &nbsp
+    Museums &nbsp
+    NFTs &nbsp
   </div>
 </nav>

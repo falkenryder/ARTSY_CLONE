@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <div class="form-title"> Make a new offer </div>
+      <div class="form-subtitle">Please enter the price you'd like to offer.</div>
       <%= simple_form_for @offer, url: artwork_offers_path do |f| %>
       <div class="form-inputs">
         <%= f.input :amount, label: 'Bidding Price (USD)', placeholder: '10,000', error: 'Bidding Price is mandatory. Please specify one', input_html: { min: '0', step: 'any' } %>

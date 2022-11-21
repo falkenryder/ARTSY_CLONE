@@ -4,6 +4,7 @@ class Artwork < ApplicationRecord
                   against: %i[artist_name title year theme],
                   using: { trigram: { threshold: 0.1 } }
 
+  include ActionView::Helpers::NumberHelper
 
   validates :artist_name, :title, :theme, :year, :price, :details, presence: true
   validates :theme, inclusion: { in: %w[Contemporary Street-Art Pop-Art Abstract-Expressionism Post-War Impressionism Old-Masters] }
@@ -12,4 +13,9 @@ class Artwork < ApplicationRecord
 
   # belongs_to :owner, class_name: "User"
   has_many :offers, dependent: :destroy
+
+  def price_delimit
+    return "#{number_with_delimiter(self.price)}"
+  end
+
 end
